@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("chat-ao-vivo"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1e39107ee63cc7ec90f494b3bf49d9125a6965e0"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("chat-ao-vivo"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("chat-ao-vivo"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

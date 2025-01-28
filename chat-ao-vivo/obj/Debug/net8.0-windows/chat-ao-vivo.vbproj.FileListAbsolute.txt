@@ -78,3 +78,17 @@ C:\Users\Tenata\source\repos\maria\chat-ao-vivo\chat-ao-vivo\bin\Debug\net8.0-wi
 C:\Users\Tenata\source\repos\maria\chat-ao-vivo\chat-ao-vivo\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
 C:\Users\Tenata\source\repos\maria\chat-ao-vivo\chat-ao-vivo\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
 C:\Users\Tenata\source\repos\maria\chat-ao-vivo\chat-ao-vivo\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.vbproj.AssemblyReference.cache
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\Interop.SpeechLib.dll
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.vbproj.ResolveComReference.cache
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat_ao_vivo.Form1.resources
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat_ao_vivo.Resources.resources
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.vbproj.GenerateResource.cache
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.AssemblyInfoInputs.cache
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.AssemblyInfo.vb
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.vbproj.CoreCompileInputs.cache
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.sourcelink.json
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.dll
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\refint\chat-ao-vivo.dll
+C:\Users\ceepa\Source\Repos\Joao-J\leilaojogo\chat-ao-vivo\obj\Debug\net8.0-windows\chat-ao-vivo.pdb

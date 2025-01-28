@@ -1880,19 +1880,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tenata\\.nuget\\packages\\": {}
+    "C:\\Users\\ceepa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Tenata\\source\\repos\\leilao\\chat-ao-vivo\\chat-ao-vivo.vbproj",
+      "projectUniqueName": "C:\\Users\\ceepa\\Source\\Repos\\Joao-J\\leilaojogo\\chat-ao-vivo\\chat-ao-vivo.vbproj",
       "projectName": "chat-ao-vivo",
-      "projectPath": "C:\\Users\\Tenata\\source\\repos\\leilao\\chat-ao-vivo\\chat-ao-vivo.vbproj",
-      "packagesPath": "C:\\Users\\Tenata\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Tenata\\source\\repos\\leilao\\chat-ao-vivo\\obj\\",
+      "projectPath": "C:\\Users\\ceepa\\Source\\Repos\\Joao-J\\leilaojogo\\chat-ao-vivo\\chat-ao-vivo.vbproj",
+      "packagesPath": "C:\\Users\\ceepa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ceepa\\Source\\Repos\\Joao-J\\leilaojogo\\chat-ao-vivo\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Tenata\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ceepa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1900,7 +1900,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://www.nuget.org/api/v2/": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -1912,11 +1912,6 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1963,7 +1958,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
