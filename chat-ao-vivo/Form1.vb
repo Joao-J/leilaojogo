@@ -3,11 +3,12 @@ Imports System.Drawing.Drawing2D
 Imports System.Net
 Imports System.Runtime.CompilerServices
 Imports Microsoft.Web.WebView2.Core
-Imports chat_ao_vivo.TransparentPictureBox
 Imports System.Speech.Synthesis
 Imports System.Threading
 Imports MySql.Data
 Imports MySql.Data.MySqlClient
+Imports System.IO
+Imports ZstdSharp.Unsafe
 
 Public Class Form1
     Dim url As String = "https://studio.youtube.com/live_chat?is_popout=1&v=T5PmZoaBEYg"
@@ -18,7 +19,14 @@ Public Class Form1
     Dim mensagens As String = ""
 
     Dim conecta As New MySqlConnection
+    Public contadordepalavrasporpessoa As New Dictionary(Of String, Integer)
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim insc As New incrito
+        insc.createpathandfile(CurDir() & "\arquivos\", "contador.txt")
+        For Each x As String In File.ReadAllLines(CurDir() & "\arquivos\contador.txt")
+            contadordepalavrasporpessoa.Add(x.Split(":")(0), Integer.Parse(x.Split(":")(1)))
+        Next
         WebView21.Source = New Uri(url)
         Me.Width = 1300
         Me.Left = 0
@@ -78,6 +86,7 @@ Public Class Form1
                                     c.msg = y
                                     c.tempo = 300
                                     c.nome_player = k
+                                    c.readd()
                                     dic.Add(k, c)
                                 End If
 
@@ -107,45 +116,50 @@ Public Class Form1
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         mensagens = ""
         For Each i As KeyValuePair(Of String, incrito) In dic
-
             If Not i.Key.Contains("Principais mensagens") And i.Value.tempo > 0 Then
-                If i.Value.msg.Replace(" ", "").Replace(vbNewLine, "") <> "" Then
-                    i.Value.sendmsg(i.Value.msg & vbNewLine & "↓")
-                End If
                 mensagens = mensagens & i.Key & " >> " & i.Value.msg & " " & i.Value.tempo & vbNewLine
                 Dim inc As incrito = i.Value
                 inc.tempo -= 1
                 dic.Item(i.Key) = inc
-
-
             End If
         Next
 
         TextBox1.Text = mensagens
     End Sub
 
-    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
-        For Each i As KeyValuePair(Of String, incrito) In dic
-            Try
-                If Not i.Key.Contains("Principais mensagens") And i.Value.tempo > 0 Then
-                    Dim ind As Integer = Me.Controls.IndexOf(i.Value.acessar_c)
-                    Dim c As Control = Me.Controls.Item(ind)
-                End If
-            Catch
-            End Try
-        Next
-    End Sub
-
-
-    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
-
-    End Sub
-
     Private Sub Timer6_Tick(sender As Object, e As EventArgs) Handles Timer6.Tick
         WebView21.CoreWebView2.Reload()
     End Sub
-End Class
 
+    Private Sub Form1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Dim texto As String
+        For Each mingal In contadordepalavrasporpessoa
+            texto &= mingal.Key & ":" & mingal.Value & vbNewLine
+        Next
+        File.WriteAllText(CurDir() & "\arquivos\contador.txt", texto)
+    End Sub
+
+    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
+        Label1.Text = "Palavras registradas " & Directory.GetFiles(CurDir() & "\dicionario\").Count
+        Label2.Text = rs()
+    End Sub
+
+    Public Function rs() As String
+        Dim texto As String
+        Dim a = contadordepalavrasporpessoa.OrderByDescending(Function(item) item.Value)
+        If a.ToList.Count > 3 Then
+            For i As Integer = 0 To 3
+                texto &= a.ToList.Item(i).ToString.Replace("[", "").Replace("]", "").Replace(",", " -> ") & vbNewLine
+            Next
+        Else
+            For Each c In a.ToList
+                texto &= c.ToString.Replace("[", "").Replace("]", "").Replace(",", " -> ") & vbNewLine
+            Next
+        End If
+        Return texto
+    End Function
+
+End Class
 Public Class incrito
     Public tempo As Integer = 0
     Dim r As Random = New Random
@@ -157,8 +171,10 @@ Public Class incrito
             Dim altmsg As String = msg.ToLower
 
             msg = altmsg
-            If msg.ToLower.Contains("tenata") Then
-                Dim tempo As String = "oi"
+            If msg.ToLower.Contains(":") Then
+                msg = dicionario(nome_player, msg)
+            ElseIf msg.ToLower.Contains(">") Then
+                msg = diclerpalavras(msg)
             End If
             synth.Volume = 100
             synth.SelectVoiceByHints(VoiceGender.Female)
@@ -169,16 +185,39 @@ Public Class incrito
         tratamento_msg()
     End Sub
 
-    Public Function acessar_c()
-        Return p
+    Public Function diclerpalavras(x As String) As String
+        Dim a = x.Split(">").ToList
+        Dim msgg = "Ninguem registrou ainda esta palavra!!!"
+        If File.Exists(CurDir() & "\dicionario\" & a.Item(0).ToString) Then
+            msgg = "Segue as definições para a palavra " & a.Item(0).ToString & vbNewLine & File.ReadAllText(CurDir() & "\dicionario\" & a.Item(0).ToString)
+        End If
+        Return msgg
     End Function
-
-    Public Sub sendmsg(x As String)
-        p_msg.Text = x
+    Public Sub createpathandfile(pasta As String, item As String)
+        If Not Path.Exists(pasta) Then
+            MkDir(pasta)
+        End If
+        If Not File.Exists(pasta & item) Then
+            File.Create(pasta & item).Close()
+        End If
     End Sub
+    Public Function dicionario(nome As String, definicao As String) As String
+        Dim d = definicao.Split(":").ToList
+        createpathandfile(CurDir() & "\dicionario\", d.Item(0).ToString)
+        File.AppendAllText(CurDir() & "\dicionario\" & d.Item(0).ToString, d.Item(1).ToString & vbNewLine & "por: " & nome & vbNewLine)
+        Dim f As String = "Não foi possivel registrar a palavra"
+        If Not d.Item(0).Contains(" ") Then
 
 
-
+            If Form1.contadordepalavrasporpessoa.ContainsKey(nome) Then
+                Form1.contadordepalavrasporpessoa.Item(nome) += 1
+            Else
+                Form1.contadordepalavrasporpessoa.Add(nome, 1)
+            End If
+            f = "foi adicionado uma nova descrição para a palavra" & d.Item(0)
+        End If
+        Return f
+    End Function
 
 
 End Class

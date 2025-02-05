@@ -29,10 +29,10 @@ Partial Class Form1
         Button1 = New Button()
         TextBox2 = New TextBox()
         Timer2 = New Timer(components)
-        Timer3 = New Timer(components)
-        Timer4 = New Timer(components)
-        Timer5 = New Timer(components)
         Timer6 = New Timer(components)
+        Label1 = New Label()
+        Label2 = New Label()
+        Timer3 = New Timer(components)
         CType(WebView21, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
         ' 
@@ -83,32 +83,43 @@ Partial Class Form1
         ' 
         Timer2.Enabled = True
         ' 
-        ' Timer3
-        ' 
-        Timer3.Enabled = True
-        Timer3.Interval = 1
-        ' 
-        ' Timer4
-        ' 
-        Timer4.Enabled = True
-        Timer4.Interval = 300
-        ' 
-        ' Timer5
-        ' 
-        Timer5.Enabled = True
-        Timer5.Interval = 300
-        ' 
         ' Timer6
         ' 
         Timer6.Enabled = True
         Timer6.Interval = 600000
+        ' 
+        ' Label1
+        ' 
+        Label1.AutoSize = True
+        Label1.Font = New Font("Segoe UI", 14F)
+        Label1.Location = New Point(12, 151)
+        Label1.Name = "Label1"
+        Label1.Size = New Size(67, 25)
+        Label1.TabIndex = 4
+        Label1.Text = "Label1"
+        ' 
+        ' Label2
+        ' 
+        Label2.AutoSize = True
+        Label2.Font = New Font("Segoe UI", 14F)
+        Label2.Location = New Point(12, 186)
+        Label2.Name = "Label2"
+        Label2.Size = New Size(67, 25)
+        Label2.TabIndex = 5
+        Label2.Text = "Label2"
+        ' 
+        ' Timer3
+        ' 
+        Timer3.Enabled = True
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.DeepPink
-        ClientSize = New Size(800, 215)
+        ClientSize = New Size(800, 337)
+        Controls.Add(Label2)
+        Controls.Add(Label1)
         Controls.Add(TextBox2)
         Controls.Add(Button1)
         Controls.Add(WebView21)
@@ -126,9 +137,9 @@ Partial Class Form1
     Friend WithEvents Button1 As Button
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents Timer2 As Timer
-    Friend WithEvents Timer3 As Timer
-    Friend WithEvents Timer4 As Timer
-    Friend WithEvents Timer5 As Timer
     Friend WithEvents Timer6 As Timer
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Timer3 As Timer
 
 End Class

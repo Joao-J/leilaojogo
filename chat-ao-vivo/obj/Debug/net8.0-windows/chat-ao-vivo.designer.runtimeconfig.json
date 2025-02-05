@@ -12,8 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Tenata\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Tenata\\.nuget\\packages"
+      "C:\\Users\\ceepa\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\ceepa\\.nuget\\packages"
     ],
     "configProperties": {
       "System.Runtime.Serialization.EnableUnsafeBinaryFormatterSerialization": true,
